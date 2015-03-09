@@ -8,13 +8,11 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp" />
-    <ClCompile Include="sqlite3.c" />
-    <ClCompile Include="SQLiteWinRT.cpp" />
     <ClCompile Include="WinRTVFS.cpp" />
+    <ClCompile Include="SQLiteWinRTExtensions.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h" />
-    <ClInclude Include="sqlite3.h" />
     <ClInclude Include="WinRTVFS.h" />
   </ItemGroup>
 </Project>

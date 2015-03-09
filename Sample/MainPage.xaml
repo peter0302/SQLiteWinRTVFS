@@ -1,0 +1,42 @@
+﻿<Page
+    x:Class="SQLiteWinRTExtesnionsSample.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:SQLiteWinRTExtesnionsSample"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    RequestedTheme="Light"
+    Loaded="OnMainPageLoaded"
+    mc:Ignorable="d">
+    <Page.DataContext>
+        <local:ViewModel />
+    </Page.DataContext>
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+        <StackPanel Orientation="Vertical" Margin="10 10 10 10">
+
+            <TextBlock Text="SQLiteWinRTExtensions Example" Margin="0 0 0 5" Style="{StaticResource HeaderTextBlockStyle}" />
+            <Button Content="Select a folder to browse:" Click="OnSelectFolderButtonClick"/>
+        
+            <TextBlock Text="Select a database:" Margin="0 0 0 5" Style="{StaticResource SubheaderTextBlockStyle}"/>
+            
+            <GridView ItemsSource="{Binding DatabaseFiles}" ItemClick="OnFileSelected" IsItemClickEnabled="True">
+                <GridView.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding DisplayName}"/>
+                    </DataTemplate>
+                </GridView.ItemTemplate>
+            </GridView>
+                
+            <TextBlock Text="Tables:" Margin="0 0 0 5" Style="{StaticResource SubheaderTextBlockStyle}"/>
+            <GridView ItemsSource="{Binding DatabaseTables}" ItemClick="OnFileSelected" HorizontalAlignment="Stretch">
+                <GridView.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Width="200" Text="{Binding}"/>
+                    </DataTemplate>
+                </GridView.ItemTemplate>
+            </GridView>
+        </StackPanel>
+    </Grid>
+</Page>
