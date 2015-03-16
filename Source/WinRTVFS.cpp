@@ -123,8 +123,8 @@ int WinRTDelete(sqlite3_vfs *pVfs, const char *zPath, int dirSync)
 		auto deleteFileTask = create_task(
 			file->DeleteAsync()
 			);
-		if (dirSync)
-			deleteFileTask.wait();
+		//if (dirSync)	
+		deleteFileTask.wait();	// always wait regardless of dirSync (2015-03-16)
 		return SQLITE_OK;
 	}
 	catch (AccessDeniedException^ ex)
